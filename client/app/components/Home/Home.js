@@ -42,7 +42,7 @@ class Home extends Component {
 
   incrementCounter(index) {
     const id = this.state.counters[index]._id;
-
+    
     fetch(`/api/counters/${id}/increment`, { method: 'PUT' })
       .then(res => res.json())
       .then(json => {

@@ -8,7 +8,7 @@ module.exports = (app) => {
       .catch((err) => next(err));
   });
 
-  app.post('/api/counters', function (req, res, next) {
+  app.post('/api/counters',  (req, res, next) => {
     const counter = new Counter();
 
     counter.save()
@@ -16,7 +16,7 @@ module.exports = (app) => {
       .catch((err) => next(err));
   });
 
-  app.delete('/api/counters/:id', function (req, res, next) {
+  app.delete('/api/counters/:id',  (req, res, next) => {
     Counter.findOneAndRemove({ _id: req.params.id })
       .exec()
       .then((counter) => res.json())
